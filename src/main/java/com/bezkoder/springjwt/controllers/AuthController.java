@@ -69,7 +69,8 @@ public class AuthController {
                          userDetails.getId(), 
                          userDetails.getUsername(), 
                          userDetails.getEmail(), 
-                         roles));
+                         roles,
+                        userDetails.getStatus()));
   }
 
   @PostMapping("/signup")
@@ -120,8 +121,9 @@ public class AuthController {
         }
       });
     }
-
+    user.setStatus("y");
     user.setRoles(roles);
+    System.out.println("User Details:-"+user);
     userRepository.save(user);
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));

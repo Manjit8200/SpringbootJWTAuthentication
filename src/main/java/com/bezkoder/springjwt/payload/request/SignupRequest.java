@@ -20,6 +20,10 @@ public class SignupRequest {
   @Size(min = 6, max = 40)
   private String password;
 
+ // @NotBlank(message = "Status must not be blank")
+  //@Size(min = 1, max = 3)
+  private String status;
+
   public String getUsername() {
     return username;
   }
@@ -50,5 +54,13 @@ public class SignupRequest {
 
   public void setRole(Set<String> role) {
     this.role = role;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 }
